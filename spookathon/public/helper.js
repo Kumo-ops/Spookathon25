@@ -1,6 +1,6 @@
 // helper.js
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("helper.js loaded ✅");
+  console.log("helper.js loaded");
 
   // ----- Grab elements -----
   const price       = document.getElementById("price");            // <input type="number">
@@ -43,6 +43,41 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  const payload = { 
+    category: category?.value || "all",
+    price: parseFloat(price?.value) || 0,
+    age:age?.value || "Adult",
+    gender: gender?.value || "",
+  };
+  console.log("Sening payload:", payload);
+        try {
+        const res = await fetch("http://127.0.0.1:8000/recommend", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) throw new Error("Backend request failed");
+        const data = await res.json();
+
+        // expected structure:
+        // { head: {title, url}, body: {title, url}, legs: {title, url} }
+
+        const fill = (id, part) => {
+          const box = document.getElementById(id);
+          if (!box) return;
+          const link = box.querySelector("a");
+          if (!link) return;
+
+          if (part) {
+            link.textContent = part.title || "View";
+            link.href = part.url || "#";
+          } else {
+            link.textContent = "No match";
+            link.href = "#";
+          }
+        };
+
 
 
   // ===== GENDER -> swap image =====
