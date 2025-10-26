@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pumpkin Costume Picker</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
   </head>
+
   <body>
     <main class="wrap">
+      <!-- title -->
       <h1>Pumpkin Costume Picker</h1>
+      <!-- buttons on the left side -->
       <div class="btns">
         <label for="category" class="price-label">Category</label>
         <select id="category" class="pumpkin-field">
@@ -36,12 +41,29 @@
   <option value="male">Male</option>
   <option value="female">Female</option>
 </select>
-
+<!-- middle image, if female then change to female image -->
 <img id="person-image" src="transparentMale.png" alt="Person Icon" class="img">
-</div>
-      </div>
 
-    <main> 
+<!-- Hidden costume links, once submit button is clicked links appear here --> 
+<!-- right after the person image -->
+<div id="arrow-head" class="arrow"></div>
+<div id="arrow-body" class="arrow"></div>
+<div id="arrow-legs" class="arrow"></div>
+
+<!-- Placeholder boxes for future backend links -->
+<div class="idea-note" id="head-textbox">
+  <a href="#" target="_blank">Head Idea</a>
+</div>
+
+<div class="idea-note" id="body-textbox">
+  <a href="#" target="_blank">Body Idea</a>
+</div>
+
+<div class="idea-note" id="legs-textbox">
+  <a href="#" target="_blank">Legs Idea</a>
+</div>
+
+<main> 
   <div class="idea-box">
   <textarea class="idea-input" placeholder="Enter your costume idea"></textarea>
   <button class="submit-btn">Submit Idea</button>

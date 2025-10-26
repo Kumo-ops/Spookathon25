@@ -6,6 +6,10 @@
         background: #000000;   /* dark */
         color: #f5f5f5;        /* light text */
       }
+h1{
+  font-family: 'creepster', cursive;
+  color: #ff9900;
+}
 /* pumpkin field sizes */
 :root {  
   --field-w: clamp(100px, 50vw, 200px);
@@ -117,6 +121,14 @@
         z-index: -1;
     }
 
+.wrap {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 20px;
+}
+
+
 /* design of textareas */
 .idea-input
 {
@@ -190,10 +202,91 @@ input.pumpkin-field[type="number"]::-webkit-inner-spin-button{
 }
 
 #person-image {
-  width: 250px;           /* fixed display box */
-  height: 250px;          /* same for both */
-  object-fit: contain;    /* keeps aspect ratio */
-  object-position: center;
-  display: block;
-  margin: 20px auto;      /* center it */
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: auto;
+  z-index: 1; /* keep under arrows but visible */
+}
+/* Hidden style box */
+.idea-note {
+  display: none;  /* hidden by default */
+  position: absolute;
+  background: rgba(255, 165, 0, 0.9);
+  color: #111;
+  font-weight:600; 
+  padding: 6px 10px;
+}
+
+/* positioning for head, body, and leg */
+#head-textbox {
+  top: 25%;
+  right: 10%;
+  transform: translate(-50%, -50%);
+}
+#body-textbox {
+  top: 55%;
+  right:10%;
+  transform: translate(-50%, -50%);
+}
+#legs-textbox {
+  bottom: 20%;
+  right:10%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* Position arrows pointing toward textboxes */
+/* Make sure arrows position against this container */
+.wrap { position: relative; }
+
+/* Keep the person below arrows */
+.img { position: relative; z-index: 1; }
+
+/* Arrow body */
+.arrow {
+  position: absolute;
+  display: none;              /* hidden until we add .show */
+  z-index: 3;                 /* above the person image */
+  width: 80px;
+  height: 6px;                /* the “shaft” thickness */
+  background: #ffa500;
+  border-radius: 3px;
+  box-shadow: 0 0 8px #ffa500;
+  opacity: 0.9;
+}
+
+/* Arrow head (triangle) */
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: #ffa500; /* triangle color */
+  filter: drop-shadow(0 0 4px #ffa500);
+}
+
+/* Toggle this class from JS to show */
+.arrow.show { display: block; }
+
+/* Your positions (tweak as needed) */
+#arrow-head {
+  top: 28%;
+  left: 52%;
+  transform: rotate(-20deg);
+}
+#arrow-body {
+  top: 55%;
+  left: 52%;
+  transform: rotate(0deg);
+}
+#arrow-legs {
+  bottom: 22%;
+  left: 55%;
+  transform: rotate(-20deg);
 }

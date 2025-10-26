@@ -31,8 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       console.log("Submitted idea:", txt);
       idea.value = "";
+
+      //reveal hidden text boxes next to body
+      const headBox = document.getElementById("head-textbox").style.display = "block";
+      const bodyBox = document.getElementById("body-textbox").style.display = "block";
+      const legsBox = document.getElementById("legs-textbox").style.display = "block";
+
+      // reveal hidden arrows
+      ["arrow-head", "arrow-body", "arrow-legs"].forEach(id => {
+        document.getElementById(id).style.display = "block";
+      });
     });
   }
+
 
   // ===== GENDER -> swap image =====
   if (gender && personImage) {
