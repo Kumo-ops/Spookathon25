@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pumpkin Costume Picker</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Pumpkin Costume Picker</h1>
+      <div class="btns">
+        <label for="category" class="price-label">Category</label>
+        <select id="category" class="pumpkin-field">
+          <option value="all">Any</option>
+          <option value="scary">Scary</option>
+          <option value="funny">Funny</option>
+          <option value="classic">Classic</option>
+          <option value="pop-culture">Pop Culture</option>
+        </select> 
+  <div class="price-wrap">
+    <label for="price" class="price-label">Price ($)</label>
+    <input type="number" id="price" class="pumpkin-field" placeholder="Enter amount" min="0" />
+  </div>
+  <div class="price-wrap">
+    <label for="age" class="price-label">Age</label>
+    <input type="number" id="age" class="pumpkin-field" placeholder="Enter age" min="0" />
+  </div>
+  <div class="btns">
+            <label for="gender" class="price-label">Category</label>
+        <select id="gender" class="pumpkin-field">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+  </div>
+      </div>
+      <section id="ideas" style="margin-top:32px;"></section>
+    </main>
+       <img id="person-image" src="Body.png" alt="Person Icon" class="img"/>
+
+    <main> 
+  <div class="idea-box">
+  <textarea class="idea-input" placeholder="Enter your costume idea"></textarea>
+  <button class="submit-btn">Submit Idea</button>
+  </div>
+
+    </main>
+
+<script>
+  console.log("index.html loaded successfully!");
+</script>
+
+<!-- load your helper from /public -->
+<script src="helper.js"></script>
+
+  </body>
+</html>

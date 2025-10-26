@@ -1,0 +1,187 @@
+
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: system-ui, Arial, sans-serif;
+        background: #000000;   /* dark */
+        color: #f5f5f5;        /* light text */
+      }
+/* pumpkin field sizes */
+:root {  
+  --field-w: 300px;
+  --field-h: 48px;
+  --field-pad-x: 16px;
+}
+/* wrap around the content */
+.wrap { max-width: 760px; margin: 0 auto; padding: 56px 20px; }
+      h1 { font-size: 2.2rem; margin: 0 0 12px; }
+      p { color: #bdbdbd; line-height: 1.7; }
+
+.btns  { 
+        /* margin-top: 24px;  */
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+        gap: 12px;
+        flex-wrap: wrap; 
+}
+/* .btn {
+        padding: 12px 16px; border-radius: 999px; border: 1px solid #2a2a2a;
+        text-decoration: none; color: #fff; background: transparent;
+} */
+.idea-box {
+    width: 80%; border-radius: 10px; border: 1px solid #2a2a2a; 
+    background: #ffA500; padding: 12px; font-size: 1rem;
+    /* position-anchor: bottom; */
+    text-shadow: #111 1px 1px; 
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    }
+    .submit-btn {
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+  }
+  .submit-btn:hover {
+    background: #fff;
+    color: #ffa500;
+
+  }
+      /* .btn.primary { background: #fff; color: #111; border-color: #fff; } */
+
+      .price-wrap
+      {
+        display:flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 20px;
+        width:100%;
+        max-width:200px;
+      }
+
+      .price-label
+      {
+        color: #ffa94d;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      /* .price-input
+      {
+        flex: 1;
+        border: none;
+        width: 100%;
+        max-width: 200px;
+        padding: 12px 16px;
+        border-radius: 10px;
+        border: 2px solid #ff9900;
+        background-color: #111;
+        color: #fff;
+        font-size: 1rem;
+        outline: none;
+        transition: 0.3s ease;
+        box-shadow: 0 0 6px rgba(255, 153, 0, 0.3);
+      } */
+
+      /* .price-input:focus
+      {
+        border-color: #ffa94d;
+        background-color: #1a1a1a;
+        box-shadow: 0 0 2px rgba(255, 153, 0, 0.6);
+      } */
+
+    img {
+        display: block;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+        z-index: -1;
+    }
+
+/* design of textareas */
+.idea-input
+{
+    flex: 1;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 1rem;
+    resize: none;             /* no manual resize */
+    height: 40px;             /* keeps it compact */
+    background: rgba(255, 153, 0, 0.6);
+    color: #111;
+}
+/* forces everything to be the size of the textbox */
+.pumpkin-field{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--field-w);
+  height: var(--field-h);          /* force same height */
+  border-radius: 10px;
+  border: 2px solid #ff9900;
+  background: #111;
+  color: #fff;
+  font: 16px/1.2 system-ui, Arial, sans-serif; /* normalize font + line-height */
+  padding: 0 var(--field-pad-x);   /* identical horizontal padding */
+  outline: none;
+  transition: .3s ease;
+  box-shadow: 0 0 6px rgba(255,153,0,.3);
+}
+
+/* Hover & focus */
+.pumpkin-field:hover{
+  box-shadow: 0 0 10px 2px rgba(255,153,0,.5);
+}
+.pumpkin-field:focus{
+  border-color: #ffa94d;
+  background: #1a1a1a;
+  box-shadow: 0 0 10px 2px rgba(255,153,0,.6);
+}
+
+/* Extra fixes per control */
+
+/* 1) Select: remove native arrow and add custom; reserve space so width matches */
+select.pumpkin-field{
+  appearance: none;            /* standard */
+  -webkit-appearance: none;    /* Safari/Chrome */
+  -moz-appearance: none;       /* Firefox */
+  padding-right: calc(var(--field-pad-x) + 24px); /* room for chevron */
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, #ffa94d 50%),
+    linear-gradient(135deg, #ffa94d 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+select.pumpkin-field option{
+  background:#111; color:#fff;
+}
+
+/* 2) Number input: remove spinners so height matches exactly */
+input.pumpkin-field[type="number"]{
+  appearance: textfield;   /* standard */
+}
+input.pumpkin-field[type="number"]::-webkit-outer-spin-button,
+input.pumpkin-field[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0; 
+}
