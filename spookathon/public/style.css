@@ -290,3 +290,8 @@ input.pumpkin-field[type="number"]::-webkit-inner-spin-button{
   left: 55%;
   transform: rotate(-20deg);
 }
+
+/* show hide loading error */
+.hidden{
+  display: none !important;
+}

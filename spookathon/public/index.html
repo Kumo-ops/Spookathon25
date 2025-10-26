@@ -4,16 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pumpkin Costume Picker</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet" />
   </head>
 
   <body>
     <main class="wrap">
-      <!-- title -->
+      <!-- Title -->
       <h1>Pumpkin Costume Picker</h1>
-      <!-- buttons on the left side -->
+
+      <!-- Left controls -->
       <div class="btns">
         <label for="category" class="price-label">Category</label>
         <select id="category" class="pumpkin-field">
@@ -22,61 +23,62 @@
           <option value="funny">Funny</option>
           <option value="classic">Classic</option>
           <option value="pop-culture">Pop Culture</option>
-        </select> 
-  <div class="price-wrap">
-    <label for="price" class="price-label">Price ($)</label>
-    <input type="number" id="price" class="pumpkin-field" placeholder="Enter amount" min="0" />
-  </div>
-  <div class="btns">
-            <label for="age" class="price-label">Age</label>
+        </select>
+
+        <div class="price-wrap">
+          <label for="price" class="price-label">Price ($)</label>
+          <input type="number" id="price" class="pumpkin-field" placeholder="Enter amount" min="0" />
+        </div>
+
+        <label for="age" class="price-label">Age</label>
         <select id="age" class="pumpkin-field">
           <option value="Adult">Adult</option>
           <option value="Kid">Kid</option>
         </select>
-  </div>
-  <div class="btns">
-    <label for="gender" class="price-label">Gender</label>
-<select id="gender" class="pumpkin-field">
-  <option value="">Select Gender</option>
-  <option value="male">Male</option>
-  <option value="female">Female</option>
-</select>
-<!-- middle image, if female then change to female image -->
-<img id="person-image" src="transparentMale.png" alt="Person Icon" class="img">
 
-<!-- Hidden costume links, once submit button is clicked links appear here --> 
-<!-- right after the person image -->
-<div id="arrow-head" class="arrow"></div>
-<div id="arrow-body" class="arrow"></div>
-<div id="arrow-legs" class="arrow"></div>
+        <label for="gender" class="price-label">Gender</label>
+        <select id="gender" class="pumpkin-field">
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
 
-<!-- Placeholder boxes for future backend links -->
-<div class="idea-note" id="head-textbox">
-  <a href="#" target="_blank">Head Idea</a>
-</div>
+      <!-- Stage (person + arrows + result boxes) -->
+      <section class="stage">
+        <!-- Person image; JS swaps src by gender -->
+        <img id="person-image" src="transparentMale.png" alt="Person Icon" class="img" />
 
-<div class="idea-note" id="body-textbox">
-  <a href="#" target="_blank">Body Idea</a>
-</div>
+        <!-- Arrows (hidden by default via CSS) -->
+        <div id="arrow-head" class="arrow"></div>
+        <div id="arrow-body" class="arrow"></div>
+        <div id="arrow-legs" class="arrow"></div>
 
-<div class="idea-note" id="legs-textbox">
-  <a href="#" target="_blank">Legs Idea</a>
-</div>
+        <!-- Placeholder boxes (hidden by default; JS fills + shows) -->
+        <div class="idea-note" id="head-textbox" style="display:none">
+          <a href="#" target="_blank" rel="noopener">Head Idea</a>
+        </div>
 
-<main> 
-  <div class="idea-box">
-  <textarea class="idea-input" placeholder="Enter your costume idea"></textarea>
-  <button class="submit-btn">Submit Idea</button>
-  </div>
+        <div class="idea-note" id="body-textbox" style="display:none">
+          <a href="#" target="_blank" rel="noopener">Body Idea</a>
+        </div>
 
+        <div class="idea-note" id="legs-textbox" style="display:none">
+          <a href="#" target="_blank" rel="noopener">Legs Idea</a>
+        </div>
+      </section>
+
+      <!-- Bottom idea input + submit -->
+      <section class="idea-box">
+        <textarea class="idea-input" placeholder="Enter your costume idea"></textarea>
+        <button class="submit-btn">Submit Idea</button>
+      </section>
     </main>
 
-<script>
-  console.log("index.html loaded successfully!");
-</script>
-
-<!-- load your helper from /public -->
-<script src="helper.js"></script>
-
+    <script>
+      console.log("index.html loaded successfully!");
+    </script>
+    <!-- Load JS last; 'defer' ensures it runs after parsing -->
+    <script src="helper.js" defer></script>
   </body>
 </html>
